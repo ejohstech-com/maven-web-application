@@ -101,7 +101,7 @@
 	</distributionManagement>
 	
 	<build>
-		<finalName>Youtube_facebook_Instagram_Project</finalName>
+		<finalName>Social Meria Project</finalName>
 		
 		<plugins>
 			<plugin>
