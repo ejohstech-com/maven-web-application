@@ -101,7 +101,7 @@
 	</distributionManagement>
 	
 	<build>
-		<finalName>Social Meria Project</finalName>
+		<finalName>Social Media Project</finalName>
 		
 		<plugins>
 			<plugin>
