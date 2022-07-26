@@ -1,0 +1,34 @@
+pipeline{
+  agent any
+  tools {
+    maven "maven3.8.6"
+  }
+  stages{
+    stage('GitClone'){
+      steps{
+git branch: 'dev', credentialsId: 'GitHubCredentials', url: 'https://github.com/ejohstech-com/maven-web-application.git'
+      }
+    }
+    stage('Maven Build'){
+      steps{
+        sh  "mvn clean install"
+      }
+    }
+    stage('BuildDocker Image'){
+      steps{
+          script { 'docker build -t akoejoh2022/maven-web-app .'
+           }
+         }
+    }
+    stage('Push Image to DockerHub'){
+      steps{
+           script {
+               withCredentials([string(credentialsId: 'DockerHubID', variable: 'dockerhubpwd')]) {
+                sh 'docker login -u akoejoh2022 -p ${dockerhubpwd}'
+}
+        sh 'docker push akoejoh2022/maven-web-app'
+             }
+          }
+    }
+  }
+}
