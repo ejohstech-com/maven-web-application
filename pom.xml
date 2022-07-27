@@ -101,7 +101,7 @@
 	</distributionManagement>
 	
 	<build>
-		<finalName>Social Media Project</finalName>
+		<finalName>maven-web-app.war</finalName>
 		
 		<plugins>
 			<plugin>
